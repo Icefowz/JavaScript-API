@@ -6,7 +6,14 @@ fetch("https://dogapi.dog/api/v2/breeds")
   })
   .then((result) => {
     console.log(result.data);
-    result.data.slice(0, 10).forEach((dog) => {
+    let rBreed = [];
+    for (let i = 0; i < 10; i++) {
+      let i = Math.floor(Math.random() * result.data.length);
+      let r = result.data[i];
+      rBreed.push(r);
+    }
+
+    rBreed.forEach((dog) => {
       const name = document.createElement("p");
       name.setAttribute("class", "Name");
       name.textContent = dog.attributes.name;
