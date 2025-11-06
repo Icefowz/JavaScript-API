@@ -1,0 +1,30 @@
+body {
+  background-color: cadetblue;
+}
+
+#root {
+  padding: 20px 20px;
+}
+
+.Name {
+  font-weight: 600;
+  font-family: sans-serif;
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 14px;
+}
+.Description {
+  text-align: center;
+  font-family: monospace;
+  display: none;
+  width: 640px;
+  margin: 0 auto 12px;
+  font-size: 16px;
+}
+.Description.show {
+  display: block;
+}
+.main-btn {
+  margin: 0 auto;
+  display: block;
+}
