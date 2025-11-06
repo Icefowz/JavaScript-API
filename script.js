@@ -21,6 +21,12 @@ fetch("https://dogapi.dog/api/v2/breeds")
 
       btn.addEventListener("click", () => {
         description.classList.toggle("show");
+
+        if (btn.textContent === "close") {
+          btn.textContent = "Description";
+        } else {
+          btn.textContent = "close";
+        }
       });
 
       root.appendChild(name);
