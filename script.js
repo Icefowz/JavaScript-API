@@ -1,22 +1,27 @@
 const root = document.getElementById("root");
 
-fetch("https://dogapi.dog/api/v2/breeds")
+fetch(
+  "https://api.thedogapi.com/v1/breeds?page=0&api_key=live_MzN4dbb958FOUG2pVKxfXc2d6DuheEAc4dADYsOR7GyRmxJSKqQbvTNn3m0tQ7sr"
+)
   .then((res) => {
     return res.json();
   })
   .then((result) => {
-    console.log(result.data);
+    console.log(result);
     let rBreed = [];
     for (let i = 0; i < 10; i++) {
-      let i = Math.floor(Math.random() * result.data.length);
-      let r = result.data[i];
+      let i = Math.floor(Math.random() * result.length);
+      let r = result[i];
       rBreed.push(r);
     }
 
     rBreed.forEach((dog) => {
       const name = document.createElement("p");
       name.setAttribute("class", "Name");
-      name.textContent = dog.attributes.name;
+      name.textContent = dog.name;
+
+      const img = document.createElement("img");
+      img.setAttribute("src", dog.image.url);
 
       const btn = document.createElement("button");
       btn.textContent = "Description";
@@ -24,7 +29,7 @@ fetch("https://dogapi.dog/api/v2/breeds")
 
       const description = document.createElement("p");
       description.setAttribute("class", "Description");
-      description.textContent = dog.attributes.description;
+      description.textContent = dog.description;
 
       btn.addEventListener("click", () => {
         description.classList.toggle("show");
@@ -38,6 +43,7 @@ fetch("https://dogapi.dog/api/v2/breeds")
 
       root.appendChild(name);
       root.appendChild(description);
+      root.appendChild(img);
       root.appendChild(btn);
     });
   })
