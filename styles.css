@@ -25,6 +25,14 @@ body {
   display: block;
 }
 .main-btn {
-  margin: 0 auto;
+  margin: 10px auto 0;
   display: block;
+}
+.dog-img {
+  display: block;
+  width: 700px;
+  /* aspect-ratio: 16/9;    //// another try of adjusting the height///
+  object-fit: cover;
+  object-position: center top; */
+  margin: 0 auto;
 }

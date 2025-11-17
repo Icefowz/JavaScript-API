@@ -22,6 +22,7 @@ fetch(
 
       const img = document.createElement("img");
       img.setAttribute("src", dog.image.url);
+      img.setAttribute("class", "dog-img");
 
       const btn = document.createElement("button");
       btn.textContent = "Description";
@@ -29,7 +30,7 @@ fetch(
 
       const description = document.createElement("p");
       description.setAttribute("class", "Description");
-      description.textContent = dog.description;
+      description.textContent = dog.description || dog.temperament;
 
       btn.addEventListener("click", () => {
         description.classList.toggle("show");
@@ -42,8 +43,8 @@ fetch(
       });
 
       root.appendChild(name);
-      root.appendChild(description);
       root.appendChild(img);
+      root.appendChild(description);
       root.appendChild(btn);
     });
   })
